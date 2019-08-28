@@ -1,35 +1,23 @@
 const fs = require('fs');
 // Build paths
 const {buildPathHtml} = require('./buildPaths');
-var tableBody = "";
-
 
 function createRow(item) {
+    var tableBody = "";
     for(var a in obj) {
         for(var b in obj.flowsToRun){
-
             tableBody+='<br>FLOW STEP ' + (Number(b)+1) + '<br><table><tr><th>Project Name</td><th>Cucumber Options</td></tr>';
-
             for(var c in obj.flowsToRun[b].flowSteps){
                 tableBody += `<tr>
                 <td>${item.flowsToRun[b].flowSteps[c].projectName}</td>
                 <td>${item.flowsToRun[b].flowSteps[c].cucumberOptions}</td>
                 </tr>`
             }
-            //tableBody+='<tr><th></th><th></th></tr></table>'
             tableBody+='<br></table>'
         }
     }
     return tableBody;
 }
-
-const createTable = (rows) => `
-  <table>
-    <tr>
-    </tr>
-    ${rows}
-  </table>
-`;
 
 const createHtml = (table) => `
   <html>
@@ -84,7 +72,6 @@ try {
     obj = JSON.parse(data);
 
     const rows = createRow(obj)
-    //const table = createTable(rows);
     const html = createHtml(rows);
 
     fs.writeFileSync(buildPathHtml, html);
