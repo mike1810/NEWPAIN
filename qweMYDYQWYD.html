@@ -27,7 +27,7 @@
 <script>
     function CreateTableFromJSON() {
 
-        /*var myBooks = [
+        var myBooks = [
 
             {
                 "projectName": "SCP",
@@ -57,17 +57,18 @@
                 "projectName": "SCP",
                 "cucumberOptions": "--tags @e2eproduct --tags @submit_approve"
             }
-        ]*/
+        ]
 
-
-        const jsonData = require('/inputJson.json');
+/*
+        const jsonData = require(__dirname + '/inputJson.json');
         console.log(jsonData);
 
         let myJSON = JSON.stringify(jsonData)
         console.log(myJSON);
 
-        var myBooks =
-            myJSON;
+        var myBooks = [
+            myJSON
+        ]*/
 
 
         // EXTRACT VALUE FOR HTML HEADER.
@@ -108,7 +109,17 @@
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
+        console.log(table);
         divContainer.appendChild(table);
+
+
+        /*var fs = require('fs');
+
+        fs.readFile('inputJson.json','utf8', function (err, data) {
+            let obj = JSON.parse(data);
+            let myJSON = JSON.stringify(obj)
+            fs.writeFileSync("try.html", myJSON, function (err, data){})
+        });*/
     }
 </script>
 </html>
