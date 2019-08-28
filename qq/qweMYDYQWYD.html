@@ -20,12 +20,12 @@
     </style>
 </head>
 <body>
-<input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON"/>
+<!--<input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON"/>-->
 <p id="showData"></p>
 </body>
 
 <script>
-    function CreateTableFromJSON() {
+    //function CreateTableFromJSON() {
 
         var myBooks = [
 
@@ -112,14 +112,17 @@
         console.log(table);
         divContainer.appendChild(table);
 
+/*
+        var fs = require('fs');
+        fs.writeFileSync("try.html", table, function (err, data){})*/
 
-        /*var fs = require('fs');
 
-        fs.readFile('inputJson.json','utf8', function (err, data) {
-            let obj = JSON.parse(data);
+
+        /*fs.readFile('inputJson.json', table , function (err, table) {
+            let obj = JSON.parse(table);
             let myJSON = JSON.stringify(obj)
             fs.writeFileSync("try.html", myJSON, function (err, data){})
         });*/
-    }
+   // }
 </script>
 </html>
